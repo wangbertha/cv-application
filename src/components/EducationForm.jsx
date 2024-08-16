@@ -29,7 +29,7 @@ const EducationForm = ({ info, handleSave }) => {
                 <input type='text' id="major" className="major" name="major" value={formInfo.major} onChange={handleFieldUpdate} />
             </li>
             <li>
-                <label htmlFor="graduationYear">Phone Number: </label>
+                <label htmlFor="graduationYear">Graduation Year: </label>
                 <input type="number" id="graduationYear" className="graduation-year" name="graduationYear" value={formInfo.graduationYear} onChange={handleFieldUpdate} />
             </li>
         </ul>
