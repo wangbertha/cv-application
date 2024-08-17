@@ -1,14 +1,14 @@
 import React from 'react'
 
-const GeneralInfoSaved = ({ info, setIsEditing }) => {
+const Saved = ({ info, setIsEditing }) => {
   return (
     <div className='saved'>
       {Object.entries(info).map(([key, value]) => (
-        <p key={key}><strong>{key}:</strong> {value}</p>
+        <p key={key}><strong>{value.label}:</strong> {value.value}</p>
       ))}
       <button onClick={() => setIsEditing(true)}>Edit</button>
     </div>
   )
 }
 
-export default GeneralInfoSaved
+export default Saved

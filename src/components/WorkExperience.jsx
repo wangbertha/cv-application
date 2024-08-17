@@ -1,15 +1,35 @@
 import React, { useState } from 'react'
-import WorkExperienceSaved from './WorkExperienceSaved';
-import WorkExperienceForm from './WorkExperienceForm';
+import Saved from './Saved';
+import Form from './Form';
 
 const WorkExperience = () => {
     const [isEditing, setIsEditing] = useState(true);
     const [info, setInfo] = useState({
-        companyName: '',
-        positionTitle: '',
-        responsibilities: '',
-        dateFrom: '',
-        dateTo: ''
+        companyName: {
+          label: 'Company Name',
+          type: 'text',
+          value: ''
+        },
+        positionTitle: {
+          label: 'Position Title',
+          type: 'text',
+          value: ''
+        },
+        responsibilities: {
+          label: 'Responsibilities',
+          type: 'text',
+          value: ''
+        },
+        dateFrom: {
+          label: 'Date From',
+          type: 'date',
+          value: ''
+        },
+        dateTo: {
+          label: 'Date To',
+          type: 'date',
+          value: ''
+        }
     })
 
     function handleSave(submittedInfo) {
@@ -20,7 +40,7 @@ const WorkExperience = () => {
   return (
     <div className='section'>
         <h2>Work Experience</h2>
-        {isEditing ? <WorkExperienceForm info={info} handleSave={handleSave}/> : <WorkExperienceSaved info={info} setIsEditing={setIsEditing} />}
+        {isEditing ? <Form info={info} handleSave={handleSave}/> : <Saved info={info} setIsEditing={setIsEditing} />}
     </div>
   )
 }
