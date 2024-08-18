@@ -45,7 +45,7 @@ const Section = ({ infoStructure, title }) => {
         <h2>{title}</h2>
         {info.map((entry) => 
           <div key={entry.meta.id}>
-            {entry.meta.isEditing ? <Form info={entry} handleSave={handleSave}/> : <Saved info={entry} toggleToEdit={toggleToEdit} deleteInfo={deleteInfo} />}
+            {entry.meta.isEditing ? <Form info={entry} handleSave={handleSave} deleteInfo={deleteInfo} /> : <Saved info={entry} toggleToEdit={toggleToEdit} deleteInfo={deleteInfo} />}
           </div>
         )}
         <button onClick={addInfo}>+ {title}</button>

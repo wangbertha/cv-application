@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Form = ({ info, handleSave }) => {
+const Form = ({ info, handleSave, deleteInfo }) => {
     const [formInfo, setFormInfo] = useState(info)
 
     function handleFieldUpdate(e) {
@@ -15,6 +15,10 @@ const Form = ({ info, handleSave }) => {
     function handleClick(e) {
         e.preventDefault();
         handleSave(formInfo);
+    }
+
+    function handleDelete() {
+      deleteInfo(info.meta.id);
     }
 
   return (
@@ -35,7 +39,11 @@ const Form = ({ info, handleSave }) => {
               </li>
             )}
         </ul>
-        <button onClick={handleClick}>Save</button>
+        <div className="action-btns">
+          <button onClick={handleClick}>Save</button>
+          <button onClick={handleDelete}>Delete</button>
+        </div>
+
     </form>
   )
 }
