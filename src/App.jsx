@@ -12,6 +12,7 @@ function App() {
       <Section infoStructure={educationInfoStructure} title='Education' />
       <Section infoStructure={workExperienceInfoStructure} title='Work Experience' />
       <button onClick={window.print}>Print</button>
+      <a className='favicon-credits' href="https://www.flaticon.com/free-icons/portfolio" title="portfolio icons">Portfolio icons created by Freepik - Flaticon</a>
     </>
   )
 }

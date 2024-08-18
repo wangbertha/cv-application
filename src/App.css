@@ -45,12 +45,16 @@ form label {
 .action-btns button {
   flex: 1;
 }
+.favicon-credits {
+  font-size: 12px;
+}
 
 @media print {
   #root {
     justify-content: center;
   }
-  button {
+  button,
+  .favicon-credits {
     display: none;
   }
 }
