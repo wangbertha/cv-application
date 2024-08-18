@@ -11,6 +11,7 @@ function App() {
       <GeneralInfo />
       <Section infoStructure={educationInfoStructure} title='Education' />
       <Section infoStructure={workExperienceInfoStructure} title='Work Experience' />
+      <button onClick={window.print}>Print</button>
     </>
   )
 }
