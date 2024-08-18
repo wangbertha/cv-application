@@ -58,12 +58,22 @@ const WorkExperience = () => {
       setInfo(tempInfo);
     }
 
+    function deleteInfo(id) {
+      if (info.length===1) {
+        setInfo([initialInfo]);
+      }
+      else {
+        const tempInfo = info.filter((element) => element.meta.id!==id);
+        setInfo(tempInfo);
+      }
+    }
+
   return (
     <div className='section'>
         <h2>Work Experience</h2>
         {info.map((entry) => 
           <div key={entry.meta.id}>
-            {entry.meta.isEditing ? <Form info={entry} handleSave={handleSave}/> : <Saved info={entry} toggleToEdit={toggleToEdit} />}
+            {entry.meta.isEditing ? <Form info={entry} handleSave={handleSave}/> : <Saved info={entry} toggleToEdit={toggleToEdit} deleteInfo={deleteInfo} />}
           </div>
         )}
         <button onClick={addWorkExperience}>+ Work Experience</button>

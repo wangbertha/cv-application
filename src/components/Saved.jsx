@@ -1,10 +1,14 @@
 import React from 'react'
 
-const Saved = ({ info, toggleToEdit }) => {
+const Saved = ({ info, toggleToEdit, deleteInfo }) => {
 
   function handleClick(e) {
     e.preventDefault();
     toggleToEdit(info.meta.id);
+  }
+
+  function handleDelete() {
+    deleteInfo(info.meta.id);
   }
 
   return (
@@ -12,7 +16,10 @@ const Saved = ({ info, toggleToEdit }) => {
       {Object.entries(info).filter(([key]) => key!=='meta').map(([key, value]) => (
         <p key={key}><strong>{value.label}:</strong> {value.value}</p>
       ))}
-      <button onClick={handleClick}>Edit</button>
+      <div className="action-btns">
+        <button onClick={handleClick}>Edit</button>
+        <button onClick={handleDelete}>Delete</button>
+      </div>
     </div>
   )
 }
