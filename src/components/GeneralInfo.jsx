@@ -50,8 +50,10 @@ const GeneralInfo = () => {
 
   return (
     <div className='section'>
-        <h2>General Information</h2>
-        {info.meta.isEditing ? <Form info={info} handleSave={handleSave}/> : <Saved info={info} toggleToEdit={toggleToEdit} deleteInfo={deleteInfo} />}
+      <h2>General Information</h2>
+      <div>
+        {info.meta.isEditing ? <Form info={info} handleSave={handleSave} deleteInfo={deleteInfo} /> : <Saved info={info} toggleToEdit={toggleToEdit} deleteInfo={deleteInfo} />}
+      </div>
     </div>
   )
 }

@@ -29,6 +29,15 @@ form li {
 form label {
   text-align: left;
 }
+.saved {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  gap: 10px;
+}
+.saved h3 {
+  width: 150px;
+}
 .action-btns {
   display: flex;
 }
