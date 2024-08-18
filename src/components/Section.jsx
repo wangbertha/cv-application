@@ -3,39 +3,14 @@ import Saved from './Saved';
 import Form from './Form';
 import  { v4 as uuidv4 } from 'uuid';
 
-const Education = () => {
-    const initialInfo = {
-      meta: {
-        id: uuidv4(),
-        isEditing: true,
-      },
-      schoolName: {
-        label: 'School',
-        type: 'text',
-        value: ''
-      },
-      degree: {
-        label: 'Degree',
-        type: 'text',
-        value: ''
-      },
-      major: {
-        label: 'Major',
-        type: 'text',
-        value: ''
-      },
-      graduationYear: {
-        label: 'Graduation Year',
-        type: 'number',
-        value: ''
-      }
-    }
+const Section = ({ infoStructure, title }) => {
+    const initialInfo = {...infoStructure};
     const [info, setInfo] = useState([initialInfo]);
 
     function handleSave(submittedInfo) {
       const tempInfo = [...info];
       const index = tempInfo.findIndex((element) => element.meta.id===submittedInfo.meta.id);
-      tempInfo[index] = {...submittedInfo};
+      tempInfo[index] = JSON.parse(JSON.stringify(submittedInfo));
       tempInfo[index].meta.isEditing = false;
       setInfo(tempInfo);
     }
@@ -47,9 +22,11 @@ const Education = () => {
       setInfo(tempInfo);
     }
 
-    function addEducation() {
+    function addInfo() {
       const tempInfo = [...info];
-      tempInfo.push(initialInfo);
+      const newInfo = JSON.parse(JSON.stringify(initialInfo));
+      newInfo.meta.id = uuidv4();
+      tempInfo.push(newInfo);
       setInfo(tempInfo);
     }
 
@@ -65,15 +42,15 @@ const Education = () => {
 
   return (
     <div className='section'>
-        <h2>Education</h2>
+        <h2>{title}</h2>
         {info.map((entry) => 
           <div key={entry.meta.id}>
             {entry.meta.isEditing ? <Form info={entry} handleSave={handleSave}/> : <Saved info={entry} toggleToEdit={toggleToEdit} deleteInfo={deleteInfo} />}
           </div>
         )}
-        <button onClick={addEducation}>+ Education</button>
+        <button onClick={addInfo}>+ {title}</button>
     </div>
   )
 }
 
-export default Education
+export default Section

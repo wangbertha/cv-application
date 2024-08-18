@@ -1,6 +1,6 @@
 import GeneralInfo from './components/GeneralInfo';
-import Education from './components/Education';
-import WorkExperience from './components/WorkExperience';
+import Section from './components/Section';
+import { educationInfoStructure, workExperienceInfoStructure } from './assets/infoStructure';
 import './App.css';
 
 function App() {
@@ -9,8 +9,8 @@ function App() {
     <>
       <h1>CV Application</h1>
       <GeneralInfo />
-      <Education />
-      <WorkExperience />
+      <Section infoStructure={educationInfoStructure} title='Education' />
+      <Section infoStructure={workExperienceInfoStructure} title='Work Experience' />
     </>
   )
 }
