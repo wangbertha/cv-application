@@ -20,12 +20,20 @@ const Form = ({ info, handleSave }) => {
   return (
     <form>
         <ul>
-          {Object.entries(formInfo).map(([key, value]) => 
-            <li key={key}>
-              <label htmlFor={key}>{value.label}: </label>
-              <input type={value.type} id={key} name={key} value={value.value} onChange={handleFieldUpdate} />
-            </li>
-          )}
+          {Object.entries(formInfo)
+            .filter(([key]) => key!=='meta')
+            .map(([key, value]) => 
+              <li key={key}>
+                <label htmlFor={key}>{value.label}: </label>
+                <input 
+                  type={value.type} 
+                  id={key} 
+                  name={key} 
+                  value={value.value} 
+                  onChange={handleFieldUpdate} 
+                />
+              </li>
+            )}
         </ul>
         <button onClick={handleClick}>Save</button>
     </form>

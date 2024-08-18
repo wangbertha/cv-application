@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 import Saved from './Saved';
 import Form from './Form';
+import  { v4 as uuidv4 } from 'uuid';
 
 const GeneralInfo = () => {
-    const [isEditing, setIsEditing] = useState(true);
     const [info, setInfo] = useState({
+        meta: {
+          id: uuidv4(),
+          isEditing: true
+        },
         firstName: {
           label: 'First Name',
           type: 'text',
@@ -28,14 +32,21 @@ const GeneralInfo = () => {
     })
 
     function handleSave(submittedInfo) {
-        setIsEditing(false);
-        setInfo(submittedInfo);
+      const tempInfo = {...submittedInfo};
+      tempInfo.meta.isEditing = false;
+      setInfo(tempInfo);
+    }
+
+    function toggleToEdit() {
+      const tempInfo = {...info};
+      tempInfo.meta.isEditing = true;
+      setInfo(tempInfo);
     }
 
   return (
     <div className='section'>
         <h2>General Information</h2>
-        {isEditing ? <Form info={info} handleSave={handleSave}/> : <Saved info={info} setIsEditing={setIsEditing} />}
+        {info.meta.isEditing ? <Form info={info} handleSave={handleSave}/> : <Saved info={info} toggleToEdit={toggleToEdit} />}
     </div>
   )
 }
