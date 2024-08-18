@@ -10,11 +10,13 @@ const Form = ({ info, handleSave, deleteInfo }) => {
         const tempFormInfo = {...formInfo};
         tempFormInfo[e.target.id] = tempField;
         setFormInfo(tempFormInfo);
+        return false;
     }
 
     function handleClick(e) {
         e.preventDefault();
         handleSave(formInfo);
+        return false;
     }
 
     function handleDelete() {
