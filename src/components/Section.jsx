@@ -1,28 +1,19 @@
 import React, { useState } from 'react'
-import Saved from './Saved';
-import Form from './Form';
 import  { v4 as uuidv4 } from 'uuid';
+import Entry from './Entry';
 
 const Section = ({ infoStructure, title }) => {
     const initialInfo = {...infoStructure};
     const [info, setInfo] = useState([initialInfo]);
 
-    function handleSave(submittedInfo) {
+    function handleSectionSave(submittedInfo) {
       const tempInfo = [...info];
       const index = tempInfo.findIndex((element) => element.meta.id===submittedInfo.meta.id);
       tempInfo[index] = JSON.parse(JSON.stringify(submittedInfo));
-      tempInfo[index].meta.isEditing = false;
       setInfo(tempInfo);
     }
 
-    function toggleToEdit(id) {
-      const tempInfo = [...info];
-      const index = tempInfo.findIndex((element) => element.meta.id===id);
-      tempInfo[index].meta.isEditing = true;
-      setInfo(tempInfo);
-    }
-
-    function addInfo() {
+    function addEntry() {
       const tempInfo = [...info];
       const newInfo = JSON.parse(JSON.stringify(initialInfo));
       newInfo.meta.id = uuidv4();
@@ -30,7 +21,7 @@ const Section = ({ infoStructure, title }) => {
       setInfo(tempInfo);
     }
 
-    function deleteInfo(id) {
+    function handleSectionDelete(id) {
       if (info.length===1) {
         setInfo([initialInfo]);
       }
@@ -45,10 +36,10 @@ const Section = ({ infoStructure, title }) => {
         <h2>{title}</h2>
         {info.map((entry) => 
           <div key={entry.meta.id}>
-            {entry.meta.isEditing ? <Form info={entry} handleSave={handleSave} deleteInfo={deleteInfo} /> : <Saved info={entry} toggleToEdit={toggleToEdit} deleteInfo={deleteInfo} />}
+            <Entry entry={entry} handleSectionSave={handleSectionSave} handleSectionDelete={handleSectionDelete} />
           </div>
         )}
-        <button onClick={addInfo}>+ {title}</button>
+        <button onClick={addEntry}>+ {title}</button>
     </div>
   )
 }

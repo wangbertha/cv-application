@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import Saved from './Saved';
-import Form from './Form';
+import Entry from './Entry';
 import  { v4 as uuidv4 } from 'uuid';
 
 const GeneralInfo = () => {
-    const initialInfo = {
+    const initialEntry = {
       meta: {
         id: uuidv4(),
         isEditing: true
@@ -30,29 +29,23 @@ const GeneralInfo = () => {
         value: ''
       }
     }
-    const [info, setInfo] = useState(initialInfo)
+    const [entry, setEntry] = useState(initialEntry)
 
-    function handleSave(submittedInfo) {
-      const tempInfo = JSON.parse(JSON.stringify(submittedInfo));
-      tempInfo.meta.isEditing = false;
-      setInfo(tempInfo);
+    function handleSectionSave(submittedEntry) {
+      const tempEntry = JSON.parse(JSON.stringify(submittedEntry));
+      tempEntry.meta.isEditing = false;
+      setEntry(tempEntry);
     }
 
-    function toggleToEdit() {
-      const tempInfo = {...info};
-      tempInfo.meta.isEditing = true;
-      setInfo(tempInfo);
-    }
-
-    function deleteInfo() {
-      setInfo(initialInfo);
+    function handleSectionDelete() {
+      setEntry(initialEntry);
     }
 
   return (
     <div className='section'>
       <h2>General Information</h2>
       <div>
-        {info.meta.isEditing ? <Form info={info} handleSave={handleSave} deleteInfo={deleteInfo} /> : <Saved info={info} toggleToEdit={toggleToEdit} deleteInfo={deleteInfo} />}
+        <Entry entry={entry} handleSectionSave={handleSectionSave} handleSectionDelete={handleSectionDelete} />
       </div>
     </div>
   )

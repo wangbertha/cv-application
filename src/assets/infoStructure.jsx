@@ -3,7 +3,6 @@ import  { v4 as uuidv4 } from 'uuid';
 const educationInfoStructure = {
     meta: {
     id: uuidv4(),
-    isEditing: true,
     },
     schoolName: {
     label: 'School',
@@ -30,7 +29,6 @@ const educationInfoStructure = {
 const workExperienceInfoStructure = {
     meta: {
     id: uuidv4(),
-    isEditing: true,
     },
     companyName: {
     label: 'Company Name',

@@ -1,19 +1,19 @@
 import React from 'react'
 
-const Saved = ({ info, toggleToEdit, deleteInfo }) => {
+const Saved = ({ entry, toggleToEdit, handleFormDelete }) => {
 
   function handleClick(e) {
     e.preventDefault();
-    toggleToEdit(info.meta.id);
+    toggleToEdit(entry.meta.id);
   }
 
   function handleDelete() {
-    deleteInfo(info.meta.id);
+    handleFormDelete(entry.meta.id);
   }
 
   return (
     <>
-      {Object.entries(info).filter(([key]) => key!=='meta').map(([key, value]) => (<div key={key} className='saved' >
+      {Object.entries(entry).filter(([key]) => key!=='meta').map(([key, value]) => (<div key={key} className='saved' >
         <h3>{value.label}:</h3>
         <p>{value.value}</p></div>
       ))}

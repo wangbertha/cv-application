@@ -1,32 +1,32 @@
 import React, { useState } from 'react';
 
-const Form = ({ info, handleSave, deleteInfo }) => {
-    const [formInfo, setFormInfo] = useState(info)
+const Form = ({ entry, handleFormSave, handleFormDelete }) => {
+    const [formEntry, setFormEntry] = useState(entry)
 
     function handleFieldUpdate(e) {
         e.preventDefault();
-        const tempField = {...formInfo[e.target.id]};
+        const tempField = {...formEntry[e.target.id]};
         tempField.value = e.target.value;
-        const tempFormInfo = {...formInfo};
-        tempFormInfo[e.target.id] = tempField;
-        setFormInfo(tempFormInfo);
+        const tempFormEntry = {...formEntry};
+        tempFormEntry[e.target.id] = tempField;
+        setFormEntry(tempFormEntry);
         return false;
     }
 
     function handleClick(e) {
         e.preventDefault();
-        handleSave(formInfo);
+        handleFormSave(formEntry);
         return false;
     }
 
     function handleDelete() {
-      deleteInfo(info.meta.id);
+      handleFormDelete(entry.meta.id);
     }
 
   return (
     <form>
         <ul>
-          {Object.entries(formInfo)
+          {Object.entries(formEntry)
             .filter(([key]) => key!=='meta')
             .map(([key, value]) => 
               <li key={key}>
