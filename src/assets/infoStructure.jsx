@@ -1,6 +1,6 @@
 import  { v4 as uuidv4 } from 'uuid';
 
-const generalInfoEntryStructure = {
+const generalInfoStructure = {
     meta: {
     id: uuidv4(),
     isEditing: true
@@ -84,4 +84,4 @@ const workExperienceInfoStructure = {
     }
 }
 
-export { generalInfoEntryStructure, educationInfoStructure, workExperienceInfoStructure };
+export { generalInfoStructure, educationInfoStructure, workExperienceInfoStructure };

@@ -1,9 +1,9 @@
 import React from 'react'
 
-const PrintPage = () => {
+const PrintPage = ({ generalInfo }) => {
   return (
     <div>
-        
+        {generalInfo.toString()}
     </div>
   )
 }

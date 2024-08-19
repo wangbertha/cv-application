@@ -1,24 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Entry from './Entry';
 
-const GeneralInfo = ({ infoStructure }) => {
-    const [entry, setEntry] = useState(infoStructure)
-
+const GeneralInfo = ({ generalInfo, updateGeneralInfo, handleGeneralInfoDelete }) => {
     function handleSectionSave(submittedEntry) {
       const tempEntry = JSON.parse(JSON.stringify(submittedEntry));
-      tempEntry.meta.isEditing = false;
-      setEntry(tempEntry);
-    }
-
-    function handleSectionDelete() {
-      setEntry(infoStructure);
+      updateGeneralInfo(tempEntry);
     }
 
   return (
     <div className='section'>
       <h2>General Information</h2>
       <div>
-        <Entry entry={entry} handleSectionSave={handleSectionSave} handleSectionDelete={handleSectionDelete} />
+        <Entry entry={generalInfo} handleSectionSave={handleSectionSave} handleSectionDelete={handleGeneralInfoDelete} />
       </div>
     </div>
   )
