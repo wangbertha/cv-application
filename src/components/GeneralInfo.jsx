@@ -1,35 +1,8 @@
 import React, { useState } from 'react'
 import Entry from './Entry';
-import  { v4 as uuidv4 } from 'uuid';
 
-const GeneralInfo = () => {
-    const initialEntry = {
-      meta: {
-        id: uuidv4(),
-        isEditing: true
-      },
-      firstName: {
-        label: 'First Name',
-        type: 'text',
-        value: ''
-      },
-      lastName: {
-        label: 'Last Name',
-        type: 'text',
-        value: ''
-      },
-      email: {
-        label: 'Email',
-        type: 'email',
-        value: ''
-      },
-      phoneNumber: {
-        label: 'Phone Number',
-        type: 'tel',
-        value: ''
-      }
-    }
-    const [entry, setEntry] = useState(initialEntry)
+const GeneralInfo = ({ infoStructure }) => {
+    const [entry, setEntry] = useState(infoStructure)
 
     function handleSectionSave(submittedEntry) {
       const tempEntry = JSON.parse(JSON.stringify(submittedEntry));
@@ -38,7 +11,7 @@ const GeneralInfo = () => {
     }
 
     function handleSectionDelete() {
-      setEntry(initialEntry);
+      setEntry(infoStructure);
     }
 
   return (

@@ -1,7 +1,7 @@
 import GeneralInfo from './components/GeneralInfo';
 import Section from './components/Section';
 import PrintPage from './components/PrintPage';
-import { educationInfoStructure, workExperienceInfoStructure } from './assets/infoStructure';
+import { generalInfoEntryStructure, educationInfoStructure, workExperienceInfoStructure } from './assets/infoStructure';
 import './App.css';
 import { useState } from 'react';
 
@@ -13,7 +13,7 @@ function App() {
       {!printMode
         ? <div className='input-mode'>
             <h1>CV Application</h1>
-            <GeneralInfo />
+            <GeneralInfo infoStructure={generalInfoEntryStructure} />
             <Section infoStructure={educationInfoStructure} title='Education' />
             <Section infoStructure={workExperienceInfoStructure} title='Work Experience' />
             <div className="action-btns">
