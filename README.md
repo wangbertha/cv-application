@@ -1,4 +1,8 @@
-# React + Vite
+# CV Application
+
+[CV Application](shimmering-licorice-7fc579.netlify.app/) allows users to input CV information and convert it to a print format
+
+## React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
