@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Saved from './Saved';
 import Form from './Form';
-import '../styles/Entry.css'
 
 const Entry = ({ entry, handleSectionSave, handleSectionDelete }) => {
   const [isEditing, setIsEditing] = useState(true);
