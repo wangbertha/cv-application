@@ -1,4 +1,3 @@
-import GeneralInfo from './components/GeneralInfo';
 import Section from './components/Section';
 import PrintPage from './components/PrintPage';
 import  { v4 as uuidv4 } from 'uuid';
@@ -14,15 +13,12 @@ function App() {
 
   function updateGeneralInfo(entry) {
     setGeneralInfo(entry)
-    console.log(generalInfo);
   }
 
   function handleGeneralInfoDelete() {
     let tempEntry = JSON.parse(JSON.stringify(generalInfoEntryStructure));
     tempEntry.meta.id = uuidv4();
     setGeneralInfo(tempEntry)
-    console.log(generalInfo);
-    console.log(tempEntry);
   }
 
   function updateEducationEntries(updatedEntry) {
@@ -84,7 +80,7 @@ function App() {
       {!printMode
         ? <div className='input-mode'>
             <h1>CV Application</h1>
-            <GeneralInfo generalInfo={generalInfo} updateGeneralInfo={updateGeneralInfo} handleGeneralInfoDelete={handleGeneralInfoDelete} />
+            <Section title='General Information' entries={[generalInfo]} updateEntries={updateGeneralInfo} handleEntryDelete={handleGeneralInfoDelete} handleAddEntry={false} />
             <Section title='Education' entries={educationEntries} updateEntries={updateEducationEntries} handleEntryDelete={handleEducationEntryDelete} handleAddEntry={handleAddEducationEntry} />
             <Section title='Work Experience' entries={workExperienceEntries} updateEntries={updateWorkExperienceEntries} handleEntryDelete={handleWorkExperienceEntryDelete} handleAddEntry={handleAddWorkExperienceEntry} />
             <div className="action-btns">

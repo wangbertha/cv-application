@@ -19,7 +19,7 @@ const Section = ({ title, entries, updateEntries, handleEntryDelete, handleAddEn
             <Entry entry={entry} handleSectionSave={handleSectionSave} handleSectionDelete={handleSectionDelete} />
           </div>
         )}
-        <button onClick={handleAddEntry}>+ {title}</button>
+        {handleAddEntry ? <button onClick={handleAddEntry}>+ {title}</button> : null}
     </div>
   )
 }
