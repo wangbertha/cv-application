@@ -3,14 +3,14 @@ import '../styles/PrintPage.css'
 
 const PrintPage = ({ profileContents }) => {
     const { generalInfo, education, workExperience } = profileContents;
-    const { firstName, lastName, email, phoneNumber } = generalInfo[0];
+    const { firstName, lastName, email, phoneNumber, website } = generalInfo[0];
 
   return (
     <div className='print-mode'>
         <div className="general-info">
             <h1>{firstName.value} {lastName.value}</h1>
             <div className='contact'>
-                <p>{phoneNumber.value} | {email.value}</p>
+                <p>{phoneNumber.value} | {email.value} | <a href={website.value}>{website.value}</a></p>
             </div>
         </div>
         <hr />

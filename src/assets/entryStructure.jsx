@@ -24,6 +24,11 @@ let entryStructures = {
             label: 'Phone Number',
             type: 'tel',
             value: ''
+        },
+        website: {
+            label: 'Website',
+            type: 'text',
+            value: ''
         }
     },
     education: {
