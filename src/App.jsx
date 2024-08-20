@@ -50,7 +50,7 @@ function App() {
   return (
     <>
       {!printMode
-        ? <div className='input-mode'>
+        ? <div className='input-container'>
             <h1>CV Application</h1>
             <Section title='General Information' type='generalInfo' entries={profileContents.generalInfo} updateEntries={updateEntries} handleEntryDelete={handleEntryDelete} handleAddEntry={false} />
             <Section title='Education' type='education' entries={profileContents.education} updateEntries={updateEntries} handleEntryDelete={handleEntryDelete} handleAddEntry={handleAddEntry} />
@@ -61,7 +61,7 @@ function App() {
             </div>
             <a className='favicon-credits' href="https://www.flaticon.com/free-icons/portfolio" title="portfolio icons">Portfolio icons (favicon) created by Freepik - Flaticon</a>
           </div>
-        : <div className='print-mode'>
+        : <div className='print-container'>
             <PrintPage profileContents={profileContents} />
             <div className="action-btns">
               <button onClick={() => setPrintMode(false)}>Exit Print Mode</button>

@@ -1,3 +1,46 @@
 .print-mode {
-    border: 1px solid #000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.print-mode * {
+    text-align: left;
+}
+.general-info * {
+    text-align: center;
+}
+.education,
+.work-experience-heading {
+    font-style: italic;
+}
+.education-heading {
+    display: flex;
+    justify-content: space-between;
+}
+.work-experience {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.work-experience-heading {
+    display: flex;
+    justify-content: space-between;
+}
+.work-experience-responsibilities {
+    font-size: 14px;
+}
+
+@media print {
+    #root {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .print-container {
+        width: 100%;
+    }
+}
+
+@page {
+    margin: 0;
 }

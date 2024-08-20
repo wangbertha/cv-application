@@ -7,32 +7,40 @@ const PrintPage = ({ profileContents }) => {
 
   return (
     <div className='print-mode'>
-        <h1>{firstName.value} {lastName.value}</h1>
-        <div className='contact'>
-            <p>{phoneNumber.value} | {email.value}</p>
+        <div className="general-info">
+            <h1>{firstName.value} {lastName.value}</h1>
+            <div className='contact'>
+                <p>{phoneNumber.value} | {email.value}</p>
+            </div>
         </div>
         <hr />
+        <h2>Education</h2>
         <div className='education'>
-            <h2>Education</h2>
             {education.map((educationEntry) =>
                 (<div key={educationEntry.meta.id}>
-                    <h3>{educationEntry.schoolName.value}</h3>
-                    <p>{educationEntry.graduationYear.value}</p>
-                    <p>{educationEntry.degree.value}</p>
-                    <p>{educationEntry.major.value}</p>
+                    <div className="education-heading">
+                        <h3>{educationEntry.schoolName.value}</h3>
+                        <p className='graduation-year'>Graduation Year: {educationEntry.graduationYear.value}</p>
+                    </div>
+                    <p>{educationEntry.degree.value}, {educationEntry.major.value}</p>
                 </div>)
             )}
         </div>
         <hr />
+        <h2>Work Experience</h2>
         <div className="work-experience">
-            <h2>Work Experience</h2>
             {workExperience.map((workExperienceEntry) =>
                 (<div key={workExperienceEntry.meta.id}>
-                    <h3>{workExperienceEntry.positionTitle.value}</h3>
-                    <p>{workExperienceEntry.companyName.value}</p>
-                    <p>{workExperienceEntry.dateFrom.value}</p>
-                    <p>{workExperienceEntry.dateTo.value}</p>
-                    <p>{workExperienceEntry.responsibilities.value}</p>
+                    <div className="work-experience-heading">
+                        <div className='work-experience-heading-left'>
+                            <h3>{workExperienceEntry.positionTitle.value}</h3>
+                            <p>{workExperienceEntry.companyName.value}</p>
+                        </div>
+                        <div className="work-experience-dates">
+                            <p>{workExperienceEntry.dateFrom.value} to {workExperienceEntry.dateTo.value}</p>
+                        </div>
+                    </div>
+                    <p className='work-experience-responsibilities'>{workExperienceEntry.responsibilities.value}</p>
                 </div>)
             )}
         </div>
