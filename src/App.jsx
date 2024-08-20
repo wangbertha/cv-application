@@ -60,7 +60,7 @@ function App() {
               <button onClick={() => setPrintMode(true)}>View Print Mode</button>
               <button onClick={window.print}>Print</button>
             </div>
-            <a className='favicon-credits' href="https://www.flaticon.com/free-icons/portfolio" title="portfolio icons">Portfolio icons (favicon) created by Freepik - Flaticon</a>
+            <a className='favicon-credits' href="https://www.flaticon.com/free-icons/portfolio" title="portfolio icons">Favicon Portfolio Icon created by Freepik - Flaticon</a>
           </div>
         : <div className='print-container'>
             <PrintPage profileContents={profileContents} />
