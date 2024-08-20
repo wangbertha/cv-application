@@ -26,6 +26,11 @@
 .favicon-credits {
   font-size: 12px;
 }
+.alert {
+  margin-top: 10px;
+  text-align: left;
+  color: #ad0000;
+}
 
 @media print {
   #root {
