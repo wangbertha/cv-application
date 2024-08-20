@@ -1,6 +1,6 @@
 # CV Application
 
-[CV Application](shimmering-licorice-7fc579.netlify.app/) allows users to input CV information and convert it to a print format
+[CV Application](https://shimmering-licorice-7fc579.netlify.app/) allows users to input CV information and convert it to a print format.
 
 ## React + Vite
 
