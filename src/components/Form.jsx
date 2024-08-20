@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../styles/Form.css'
 
 const Form = ({ entry, handleFormSave, handleFormDelete }) => {
     const [formEntry, setFormEntry] = useState(entry)
@@ -46,7 +47,6 @@ const Form = ({ entry, handleFormSave, handleFormDelete }) => {
           <button onClick={handleClick}>Save</button>
           <button onClick={handleDelete}>Delete</button>
         </div>
-
     </form>
   )
 }

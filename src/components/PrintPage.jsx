@@ -44,7 +44,7 @@ const PrintPage = ({ profileContents }) => {
                 </div>)
             )}
         </div>
-        {console.log(profileContents)}
+        
     </div>
   )
 }

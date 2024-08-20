@@ -1,0 +1,13 @@
+.saved {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    gap: 10px;
+}
+.saved h3 {
+    width: 150px;
+}
+.saved-container button {
+    background-color: #f7f7f7;
+    color: #8e8e8e;
+}
