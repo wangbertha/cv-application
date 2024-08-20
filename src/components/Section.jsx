@@ -1,14 +1,18 @@
 import React from 'react'
 import Entry from './Entry';
 
-const Section = ({ title, entries, updateEntries, handleEntryDelete, handleAddEntry }) => {
+const Section = ({ title, type, entries, updateEntries, handleEntryDelete, handleAddEntry }) => {
   function handleSectionSave(submittedEntries) {
       const tempEntries = JSON.parse(JSON.stringify(submittedEntries));
-      updateEntries(tempEntries);
+      updateEntries(type, tempEntries);
     }
 
     function handleSectionDelete(id) {
-      handleEntryDelete(id);
+      handleEntryDelete(type, id);
+    }
+
+    function handleSectionAdd() {
+      handleAddEntry(type);
     }
 
   return (
@@ -19,7 +23,7 @@ const Section = ({ title, entries, updateEntries, handleEntryDelete, handleAddEn
             <Entry entry={entry} handleSectionSave={handleSectionSave} handleSectionDelete={handleSectionDelete} />
           </div>
         )}
-        {handleAddEntry ? <button onClick={handleAddEntry}>+ {title}</button> : null}
+        {handleAddEntry ? <button onClick={handleSectionAdd}>+ {title}</button> : null}
     </div>
   )
 }
