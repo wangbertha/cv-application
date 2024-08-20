@@ -65,6 +65,7 @@ function App() {
             <PrintPage profileContents={profileContents} />
             <div className="action-btns">
               <button onClick={() => setPrintMode(false)}>Exit Print Mode</button>
+              <button onClick={window.print}>Print</button>
             </div>
           </div>
       }
