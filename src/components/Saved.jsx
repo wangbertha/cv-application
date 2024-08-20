@@ -7,7 +7,8 @@ const Saved = ({ entry, toggleToEdit, handleFormDelete }) => {
     toggleToEdit(entry.meta.id);
   }
 
-  function handleDelete() {
+  function handleDelete(e) {
+    e.preventDefault();
     handleFormDelete(entry.meta.id);
   }
 

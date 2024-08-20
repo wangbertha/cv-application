@@ -19,7 +19,8 @@ const Form = ({ entry, handleFormSave, handleFormDelete }) => {
         return false;
     }
 
-    function handleDelete() {
+    function handleDelete(e) {
+      e.preventDefault();
       handleFormDelete(entry.meta.id);
     }
 

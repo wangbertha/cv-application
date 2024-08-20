@@ -1,9 +1,8 @@
 import  { v4 as uuidv4 } from 'uuid';
 
-const generalInfoStructure = {
+let generalInfoEntryStructure = {
     meta: {
     id: uuidv4(),
-    isEditing: true
     },
     firstName: {
     label: 'First Name',
@@ -27,7 +26,7 @@ const generalInfoStructure = {
     }
 }
 
-const educationInfoStructure = {
+let educationEntryStructure = {
     meta: {
     id: uuidv4(),
     },
@@ -53,7 +52,7 @@ const educationInfoStructure = {
     }
 }
 
-const workExperienceInfoStructure = {
+let workExperienceEntryStructure = {
     meta: {
     id: uuidv4(),
     },
@@ -84,4 +83,4 @@ const workExperienceInfoStructure = {
     }
 }
 
-export { generalInfoStructure, educationInfoStructure, workExperienceInfoStructure };
+export { generalInfoEntryStructure, educationEntryStructure, workExperienceEntryStructure };
