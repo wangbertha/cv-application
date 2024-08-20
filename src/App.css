@@ -32,7 +32,9 @@
     justify-content: center;
   }
   button,
-  .favicon-credits {
+  .instructions,
+  .favicon-credits,
+  .alert {
     display: none;
   }
 }

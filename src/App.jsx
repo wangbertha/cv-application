@@ -52,6 +52,7 @@ function App() {
       {!printMode
         ? <div className='input-container'>
             <h1>CV Application</h1>
+            <p className='instructions'>All open fields are required.</p>
             <Section title='General Information' type='generalInfo' entries={profileContents.generalInfo} updateEntries={updateEntries} handleEntryDelete={handleEntryDelete} handleAddEntry={false} />
             <Section title='Education' type='education' entries={profileContents.education} updateEntries={updateEntries} handleEntryDelete={handleEntryDelete} handleAddEntry={handleAddEntry} />
             <Section title='Work Experience' type='workExperience' entries={profileContents.workExperience} updateEntries={updateEntries} handleEntryDelete={handleEntryDelete} handleAddEntry={handleAddEntry} />

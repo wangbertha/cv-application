@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/Form.css'
 
-const Form = ({ entry, handleFormSave, handleFormDelete }) => {
+const Form = ({ entry, handleFormSave, handleFormDelete, setAlert }) => {
     const [formEntry, setFormEntry] = useState(entry)
 
     function handleFieldUpdate(e) {
@@ -14,15 +14,27 @@ const Form = ({ entry, handleFormSave, handleFormDelete }) => {
         return false;
     }
 
-    function handleClick(e) {
+    function handleSave(e) {
         e.preventDefault();
         handleFormSave(formEntry);
+        handleAlerts();
         return false;
+    }
+
+    function handleAlerts() {
+        let alerts = []
+        Object.values(formEntry).forEach((value) => {
+          if (value.value==='') {
+            alerts.push(value.label);
+          }
+        })
+        setAlert(`Missing: ${alerts.join(', ')}`)
     }
 
     function handleDelete(e) {
       e.preventDefault();
       handleFormDelete(entry.meta.id);
+      return false;
     }
 
   return (
@@ -44,7 +56,7 @@ const Form = ({ entry, handleFormSave, handleFormDelete }) => {
             )}
         </ul>
         <div className="action-btns">
-          <button onClick={handleClick}>Save</button>
+          <button onClick={handleSave}>Save</button>
           <button onClick={handleDelete}>Delete</button>
         </div>
     </form>
