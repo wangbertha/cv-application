@@ -22,24 +22,6 @@
   flex-direction: column;
   gap: 5px;
 }
-form li {
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  justify-content: left;
-  list-style: none;
-}
-form label {
-  text-align: left;
-}
-.saved {
-  display: flex;
-  flex-direction: row;
-  text-align: left;
-  gap: 10px;
-}
-.saved h3 {
-  width: 150px;
-}
 .action-btns {
   display: flex;
   gap: 10px;

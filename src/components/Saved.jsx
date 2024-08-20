@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styles/Saved.css'
 
 const Saved = ({ entry, toggleToEdit, handleFormDelete }) => {
 
@@ -13,7 +14,7 @@ const Saved = ({ entry, toggleToEdit, handleFormDelete }) => {
   }
 
   return (
-    <>
+    <div className='saved-container'>
       {Object.entries(entry).filter(([key]) => key!=='meta').map(([key, value]) => (<div key={key} className='saved' >
         <h3>{value.label}:</h3>
         <p>{value.value}</p></div>
@@ -22,7 +23,7 @@ const Saved = ({ entry, toggleToEdit, handleFormDelete }) => {
         <button onClick={handleClick}>Edit</button>
         <button onClick={handleDelete}>Delete</button>
       </div>
-    </>
+    </div>
   )
 }
 

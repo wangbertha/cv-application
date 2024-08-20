@@ -1,0 +1,9 @@
+form li {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    justify-content: left;
+    list-style: none;
+}
+form label {
+    text-align: left;
+}
